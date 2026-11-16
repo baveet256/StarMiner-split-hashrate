@@ -1,10 +1,26 @@
+# StarMiner split-hashrate firmware
+
+This repository is the **split-hashrate** firmware, forked from [StarMiner](https://github.com/ustarminer/StarMiner) (`ustarminer/StarMiner`). StarMiner itself comes from [ESP-Miner](https://github.com/bitaxeorg/ESP-Miner). GitHub shows that fork link at the top of the page. The name, this README, and the repository description are here so a search or a scrape can tell this tree apart: it is the build that **splits hashrate across pools**.
+
+One miner keeps hashing, and the work is shared evenly across the pools that are filled in and connected:
+
+| Pools filled and live | Pool 1 | Pool 2 | Pool 3 |
+| --- | --- | --- | --- |
+| Pool 1 only | 100% | — | — |
+| Pool 1 and Pool 2 | 50% | 50% | — |
+| Pool 1, Pool 2, and Pool 3 | 33% | 33% | 33% |
+
+Split stays off until it is turned on. Pool 2 and Pool 3 speak Stratum V1. A share goes back only to the pool that sent that job. The checked behavior is written up in [`docs/runbooks/starminer-split-firmware.md`](docs/runbooks/starminer-split-firmware.md).
+
+Search terms this repository answers: split hashrate, split hashrate across pools, multi-pool hashrate, StarMiner fork, StarMiner pool split, ESP-Miner pool split.
+
 <p align="center">
   <img src="image/logo1.png" alt="Mineros" width="420">
 </p>
 
 <h1 align="center">Mineros</h1>
 
-Mineros is firmware for Mineros DC 12V miner boards. It keeps the AxeOS web interface and the ESP-IDF build flow. This is a modified version of ESP-Miner, released under GPL-3 (November 2026).
+The hardware and build notes below are the StarMiner / Mineros readme this fork started from. Mineros is firmware for Mineros DC 12V miner boards. It keeps the AxeOS web interface and the ESP-IDF build flow. This is a modified version of ESP-Miner, released under GPL-3 (November 2026).
 
 Build and flash images from this repository with the matching `config-601a.cvs` file.
 
